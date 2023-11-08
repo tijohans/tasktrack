@@ -89,10 +89,14 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     height: 34,
   },
+
   buttonContainer: {
     backgroundColor: colors.primaryPurple,
+    shadowColor: "black",
+    shadowOffset: { width: 10, height: 10 },
+    shadowOpacity: 100,
+    shadowRadius: 0,
     width: 367,
-    borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
   },
