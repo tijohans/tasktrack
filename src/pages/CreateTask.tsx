@@ -1,14 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
-import { TextInput } from "react-native-gesture-handler";
-import { colors } from "../../themes/colors";
 import { Navigation } from "../components/Navigation";
+import { CreatTaskForm } from "../components/CreateTaskForm";
 
 export const CreateTask = () => {
   return (
     <>
-      <Navigation back={true} />
+      <Navigation back={true} title="create new title" />
       <View style={styles.container}>
-        <Text>Title</Text>
+        <CreatTaskForm />
       </View>
     </>
   );
@@ -16,6 +15,7 @@ export const CreateTask = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.secondaryPurple,
+    justifyContent: "center",
+    marginVertical: 25,
   },
 });

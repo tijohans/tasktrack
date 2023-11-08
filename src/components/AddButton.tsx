@@ -1,12 +1,19 @@
-import { Button, StyleSheet, Text } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { Button, StyleSheet, Text, View } from "react-native";
 import { colors } from "../../themes/colors";
+import { FC } from "react";
 
-export const AddButton = () => {
+interface addButtonProps {
+  text: string;
+  onPressAction?: any;
+}
+
+export const AddButton: FC<addButtonProps> = ({ text }) => {
   return (
-    <TouchableOpacity style={styles.container}>
-      <Text style={styles.text}>add task</Text>
-    </TouchableOpacity>
+    <>
+      <View style={styles.container}>
+        <Text style={styles.text}>{text}</Text>
+      </View>
+    </>
   );
 };
 
@@ -14,7 +21,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.primaryPurple,
     width: 367,
-    borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
   },
