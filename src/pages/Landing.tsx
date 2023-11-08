@@ -1,17 +1,16 @@
-import { StyleSheet, View } from "react-native";
 import { Navigation } from "../components/Navigation";
-import { Placeholder } from "../components/Placeholder";
 import { AddButton } from "../components/AddButton";
-import { useState } from "react";
 import { Link } from "expo-router";
-import { data } from "../../data";
 import { Tasks } from "../components/Tasks";
+import { useTasks } from "../hooks/useTasks";
 
 export const Landing = () => {
+  const { tasks, tasksLoading } = useTasks();
+
   return (
     <>
       <Navigation />
-      <Tasks data={data} />
+      {!tasksLoading && <Tasks data={tasks} />}
 
       <Link href={"/createtask"}>
         <AddButton text={"add task"} />

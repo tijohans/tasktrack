@@ -1,5 +1,7 @@
 export type TaskType = {
   id: string;
-  taskName: string;
-  taskDescription: string;
+  name: string;
+  description?: string;
+  imageURI?: string;
+  completed: 0 | 1;
 };

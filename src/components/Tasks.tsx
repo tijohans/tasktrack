@@ -7,8 +7,6 @@ interface TaskProps {
   data: Array<TaskType>;
 }
 
-const screenDimensions = Dimensions.get("screen");
-
 export const Tasks: FC<TaskProps> = ({ data }) => {
   const [layout, setLayout] = useState({
     width: 0,
@@ -24,8 +22,8 @@ export const Tasks: FC<TaskProps> = ({ data }) => {
         data={data}
         renderItem={({ item }) => (
           <Task
-            taskName={item.taskName}
-            taskDescription={item.taskDescription}
+            taskName={item.name}
+            taskDescription={item.description}
             width={layout.width}
             key={item.id}
           />
