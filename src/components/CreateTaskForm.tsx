@@ -2,6 +2,10 @@ import { View, Text, TextInput, StyleSheet, Button } from "react-native";
 import { useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { colors } from "../../themes/colors";
+import { router } from "expo-router";
+import { data } from "../../data";
+import "react-native-get-random-values";
+import { v4 as uuidv4 } from "uuid";
 
 interface Errors {
   [key: string]: string;
@@ -25,7 +29,16 @@ export const CreatTaskForm = () => {
   const handleSubmit = () => {
     if (!validateForm()) return console.error("form not valid");
 
-    console.log(taskName);
+    let newTask = {
+      id: uuidv4(),
+      taskName: taskName as string,
+      taskDescription: taskDescription ? (taskDescription as string) : "",
+    };
+
+    // TODO: replace this with working code to localstorage
+    data.push(newTask);
+
+    router.replace("/");
   };
 
   return (
