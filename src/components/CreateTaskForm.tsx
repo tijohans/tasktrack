@@ -12,7 +12,6 @@ import { colors } from "../../themes/colors";
 import { router } from "expo-router";
 import { data } from "../../data";
 import "react-native-get-random-values";
-import { v4 as uuidv4 } from "uuid";
 import { useTasks } from "../hooks/useTasks";
 import { TaskType } from "../../types/taskType";
 
@@ -24,7 +23,7 @@ export const CreatTaskForm = () => {
   const [taskName, setTaskName] = useState<string>();
   const [taskDescription, setTaskDescription] = useState<string>();
   const [errors, setErrors] = useState<Errors>();
-  const {} = useTasks();
+  const { addTask } = useTasks();
 
   const validateForm = () => {
     let errors: Errors = {};
@@ -40,13 +39,11 @@ export const CreatTaskForm = () => {
     if (!validateForm()) return console.error("form not valid");
 
     let newTask = {
-      id: uuidv4(),
       name: taskName as string,
       description: taskDescription ? (taskDescription as string) : "",
     };
 
-    // TODO: replace this with working code to async storage
-    data.push(newTask);
+    addTask(newTask);
 
     router.replace("/");
   };
