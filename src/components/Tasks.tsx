@@ -15,11 +15,6 @@ export const Tasks: FC<TaskProps> = ({ data }) => {
     height: 0,
   });
 
-  const navigateToTask = (id: string) => {
-    console.log(id);
-    router.push({ pathname: "/(task)/[id]", params: { id: id } });
-  };
-
   return (
     <View
       onLayout={(e) => setLayout(e.nativeEvent.layout)}
@@ -28,14 +23,13 @@ export const Tasks: FC<TaskProps> = ({ data }) => {
       <FlatList
         data={data}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => navigateToTask(item.id)}>
-            <Task
-              taskName={item.name}
-              taskDescription={item.description}
-              width={layout.width}
-              key={item.id}
-            />
-          </TouchableOpacity>
+          <Task
+            id={item.id}
+            taskName={item.name}
+            taskDescription={item.description}
+            width={layout.width}
+            key={item.id}
+          />
         )}
       />
     </View>

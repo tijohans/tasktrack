@@ -9,9 +9,14 @@ import { Colors } from "react-native/Libraries/NewAppScreen";
 interface NavigationProps {
   back?: boolean;
   title?: string;
+  hamburger?: boolean;
 }
 
-export const Navigation: FC<NavigationProps> = ({ back, title }) => {
+export const Navigation: FC<NavigationProps> = ({
+  back,
+  title,
+  hamburger = true,
+}) => {
   return (
     <View style={styles.navBar}>
       {back && (
@@ -22,7 +27,7 @@ export const Navigation: FC<NavigationProps> = ({ back, title }) => {
       {!back && <Text style={styles.logo}>tasktrack</Text>}
 
       {title && <Text style={styles.title}>{title}</Text>}
-      <Feather name="align-right" size={32} />
+      {hamburger && <Feather name="align-right" size={32} />}
     </View>
   );
 };
