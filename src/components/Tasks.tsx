@@ -2,6 +2,8 @@ import { Dimensions, FlatList, StyleSheet, View } from "react-native";
 import { Task } from "./Task";
 import { TaskType } from "../../types/taskType";
 import { FC, useState } from "react";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { router } from "expo-router";
 
 interface TaskProps {
   data: Array<TaskType>;
@@ -13,6 +15,11 @@ export const Tasks: FC<TaskProps> = ({ data }) => {
     height: 0,
   });
 
+  const navigateToTask = (id: string) => {
+    console.log(id);
+    router.push({ pathname: "/(task)/[id]", params: { id: id } });
+  };
+
   return (
     <View
       onLayout={(e) => setLayout(e.nativeEvent.layout)}
@@ -21,12 +28,14 @@ export const Tasks: FC<TaskProps> = ({ data }) => {
       <FlatList
         data={data}
         renderItem={({ item }) => (
-          <Task
-            taskName={item.name}
-            taskDescription={item.description}
-            width={layout.width}
-            key={item.id}
-          />
+          <TouchableOpacity onPress={() => navigateToTask(item.id)}>
+            <Task
+              taskName={item.name}
+              taskDescription={item.description}
+              width={layout.width}
+              key={item.id}
+            />
+          </TouchableOpacity>
         )}
       />
     </View>

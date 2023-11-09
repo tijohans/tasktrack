@@ -22,9 +22,23 @@ export const useTasks = () => {
     });
 
     db.transaction((tx) => {
-      tx.executeSql("select * from tasks", [], (_, { rows }) => {
-        setTasks(rows._array);
-      });
+      tx.executeSql(
+        "select * from tasks where completed=0",
+        [],
+        (_, { rows }) => {
+          setTasks(rows._array);
+        }
+      );
+    });
+
+    db.transaction((tx) => {
+      tx.executeSql(
+        "select * from tasks where completed=1",
+        [],
+        (_, { rows }) => {
+          setCompletedTasks(rows._array);
+        }
+      );
     });
 
     setTasksLoading(false);
@@ -49,5 +63,5 @@ export const useTasks = () => {
     });
   };
 
-  return { tasks, tasksLoading, addTask };
+  return { tasks, completedTasks, tasksLoading, addTask };
 };

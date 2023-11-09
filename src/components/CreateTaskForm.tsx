@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { colors } from "../../themes/colors";
 import { router } from "expo-router";
-import { data } from "../../data";
 import "react-native-get-random-values";
 import { useTasks } from "../hooks/useTasks";
 import { TaskType } from "../../types/taskType";
