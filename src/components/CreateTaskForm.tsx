@@ -44,7 +44,7 @@ export const CreatTaskForm = () => {
 
     addTask(newTask);
 
-    router.replace("/");
+    router.replace("../");
   };
 
   return (

@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import * as SQLite from "expo-sqlite";
+import { useFocusEffect } from "expo-router";
 
 const createTableQuery = `CREATE TABLE IF NOT EXISTS tasks (
         id INTEGER PRIMARY KEY AUTOINCREMENT, 
@@ -16,33 +17,35 @@ export const useTasks = () => {
 
   const db = SQLite.openDatabase("db.db");
 
-  useEffect(() => {
-    db.transaction((tx) => {
-      tx.executeSql(createTableQuery);
-    });
+  useFocusEffect(
+    useCallback(() => {
+      db.transaction((tx) => {
+        tx.executeSql(createTableQuery);
+      });
 
-    db.transaction((tx) => {
-      tx.executeSql(
-        "select * from tasks where completed=0",
-        [],
-        (_, { rows }) => {
-          setTasks(rows._array);
-        }
-      );
-    });
+      db.transaction((tx) => {
+        tx.executeSql(
+          "select * from tasks where completed=0",
+          [],
+          (_, { rows }) => {
+            setTasks(rows._array);
+          }
+        );
+      });
 
-    db.transaction((tx) => {
-      tx.executeSql(
-        "select * from tasks where completed=1",
-        [],
-        (_, { rows }) => {
-          setCompletedTasks(rows._array);
-        }
-      );
-    });
+      db.transaction((tx) => {
+        tx.executeSql(
+          "select * from tasks where completed=1",
+          [],
+          (_, { rows }) => {
+            setCompletedTasks(rows._array);
+          }
+        );
+      });
 
-    setTasksLoading(false);
-  }, []);
+      setTasksLoading(false);
+    }, [])
+  );
 
   const addTask = ({
     name,

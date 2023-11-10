@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTasks } from "../src/hooks/useTasks";
-import { Link } from "expo-router";
+import { Link, useLocalSearchParams } from "expo-router";
 import { AddButton } from "../src/components/AddButton";
 import { Tasks } from "../src/components/Tasks";
 

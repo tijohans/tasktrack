@@ -14,7 +14,6 @@ interface TaskProps {
 
 export const Task: FC<TaskProps> = ({ taskName, id, width }) => {
   const navigateToTask = (id: string) => {
-    console.log(id);
     router.push({ pathname: "/(task)/[id]", params: { id: id } });
   };
 

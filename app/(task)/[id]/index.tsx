@@ -1,24 +1,25 @@
 import { StyleSheet, Text, View } from "react-native";
-import { router, useLocalSearchParams } from "expo-router";
+import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 import { useTask } from "../../../src/hooks/useTask";
 import { AddButton } from "../../../src/components/AddButton";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { useEffect } from "react";
 
 export default function taskId() {
   const { id } = useLocalSearchParams();
   const { task, taskLoading, deleteTask } = useTask(id as string);
-  console.log(task);
-
-  if (taskLoading) return <Text>Loading..</Text>;
+  const { confirm } = useLocalSearchParams();
 
   const confirmDeleteTask = (id: string) => {
-    router.push("/confirmModal");
-    let confirm = false;
-    if (confirm) {
-      deleteTask(id as string);
-      router.replace("/");
-    }
+    router.push(`/confirmModal?id=${id}`);
   };
+
+  useEffect(() => {
+    if (confirm && id) {
+      deleteTask(id as string);
+      router.replace("../");
+    }
+  }, [confirm]);
 
   return (
     <>
