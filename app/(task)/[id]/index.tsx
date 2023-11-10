@@ -1,6 +1,5 @@
-import { Button, StyleSheet, Text, View } from "react-native";
-import { Link, router, useLocalSearchParams } from "expo-router";
-import { Navigation } from "../../../src/components/Navigation";
+import { StyleSheet, Text, View } from "react-native";
+import { router, useLocalSearchParams } from "expo-router";
 import { useTask } from "../../../src/hooks/useTask";
 import { AddButton } from "../../../src/components/AddButton";
 import { TouchableOpacity } from "react-native-gesture-handler";

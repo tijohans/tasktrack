@@ -1,9 +1,7 @@
-import { Dimensions, FlatList, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import { Task } from "./Task";
 import { TaskType } from "../../types/taskType";
 import { FC, useState } from "react";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { router } from "expo-router";
 
 interface TaskProps {
   data: Array<TaskType>;

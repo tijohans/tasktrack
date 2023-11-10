@@ -1,7 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { CreatTaskForm } from "../src/components/CreateTaskForm";
-import { appstyle } from "../themes/appstyle";
 
 export default function CreateTask() {
   return (

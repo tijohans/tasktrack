@@ -29,10 +29,7 @@ export default function App() {
         contentStyle: appstyle,
       }}
     >
-      <Stack.Screen
-        name="index"
-        options={{ headerTitle: "home", headerShown: false }}
-      />
+      <Stack.Screen name="index" options={{ headerTitle: "home" }} />
       <Stack.Screen
         name="createtask"
         options={{ headerTitle: "create task", presentation: "modal" }}
