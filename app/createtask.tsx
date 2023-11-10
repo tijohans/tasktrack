@@ -1,8 +1,21 @@
 import React from "react";
-import { CreateTask } from "../src/pages/CreateTask";
+import { View, StyleSheet } from "react-native";
+import { CreatTaskForm } from "../src/components/CreateTaskForm";
 
-function createtask() {
-  return <CreateTask />;
+export default function CreateTask() {
+  return (
+    <>
+      {/* <Navigation back={true} title="create new title" /> */}
+      <View style={styles.container}>
+        <CreatTaskForm />
+      </View>
+    </>
+  );
 }
 
-export default createtask;
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: "center",
+    marginVertical: 25,
+  },
+});
