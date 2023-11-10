@@ -18,7 +18,7 @@ export const Task: FC<TaskProps> = ({ taskName, id, width }) => {
   };
 
   const navigateToCamera = () => {
-    router.push("cameraModal");
+    router.push("cameraModal?id=" + id);
   };
 
   return (

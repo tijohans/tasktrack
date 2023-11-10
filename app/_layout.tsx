@@ -42,7 +42,10 @@ export default function App() {
         options={{ headerTitle: "task" }}
       />
       <Stack.Screen name="confirmModal" options={{ presentation: "modal" }} />
-      <Stack.Screen name="cameraModal" options={{ presentation: "modal" }} />
+      <Stack.Screen
+        name="cameraModal"
+        options={{ presentation: "modal", contentStyle: null }}
+      />
     </Stack>
   );
 }

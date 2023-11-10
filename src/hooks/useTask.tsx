@@ -32,5 +32,14 @@ export const useTask = (id: string) => {
     });
   };
 
-  return { task, taskLoading, deleteTask };
+  const saveCompletedTask = (id: string, imageLocation: string) => {
+    db.transaction((tx) => {
+      tx.executeSql(
+        "update tasks set imageURI = ?, completed = 1 where id = ?",
+        [imageLocation, id]
+      );
+    });
+  };
+
+  return { task, taskLoading, deleteTask, saveCompletedTask };
 };
