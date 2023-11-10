@@ -11,10 +11,6 @@ export default function taskId() {
 
   if (taskLoading) return <Text>Loading..</Text>;
 
-  const navigateCreateTask = () => {
-    router.push("/createtask");
-  };
-
   const confirmDeleteTask = (id: string) => {
     router.push("/confirmModal");
     let confirm = false;
@@ -39,13 +35,6 @@ export default function taskId() {
         onPress={() => confirmDeleteTask(id)}
       >
         <AddButton text="delete task" red={true} />
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.link}
-        onPress={() => navigateCreateTask()}
-      >
-        <AddButton text="add task" />
       </TouchableOpacity>
     </>
   );
