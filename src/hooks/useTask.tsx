@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import * as SQLite from "expo-sqlite";
 import { TaskType } from "../../types/taskType";
+import { router } from "expo-router";
 
 export const useTask = (id: string) => {
   const [task, setTask] = useState<TaskType>();
@@ -25,5 +26,17 @@ export const useTask = (id: string) => {
     setTaskLoading(false);
   }, []);
 
-  return { task, taskLoading };
+  const deleteTask = (id: string) => {
+    let confirm = false;
+    console.error("delete task with id: " + id);
+
+    if (confirm) {
+      db.transaction((tx) => {
+        tx.executeSql("delete from tasks where id=?", [id]);
+      });
+      router.replace("/");
+    }
+  };
+
+  return { task, taskLoading, deleteTask };
 };

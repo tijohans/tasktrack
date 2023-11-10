@@ -4,12 +4,12 @@ import { FC } from "react";
 
 interface addButtonProps {
   text: string;
-  onPressAction?: any;
+  red?: boolean;
 }
 
-export const AddButton: FC<addButtonProps> = ({ text }) => {
+export const AddButton: FC<addButtonProps> = ({ text, red }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, red && styles.redBg]}>
       <Text style={styles.text}>{text}</Text>
     </View>
   );
@@ -30,5 +30,8 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "bold",
     paddingVertical: 10,
+  },
+  redBg: {
+    backgroundColor: colors.red,
   },
 });
