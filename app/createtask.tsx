@@ -1,12 +1,12 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { CreatTaskForm } from "../src/components/CreateTaskForm";
+import { appstyle } from "../themes/appstyle";
 
 export default function CreateTask() {
   return (
     <>
-      {/* <Navigation back={true} title="create new title" /> */}
-      <View style={styles.container}>
+      <View style={[styles.container]}>
         <CreatTaskForm />
       </View>
     </>

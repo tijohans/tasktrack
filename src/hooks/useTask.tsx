@@ -27,15 +27,9 @@ export const useTask = (id: string) => {
   }, []);
 
   const deleteTask = (id: string) => {
-    let confirm = false;
-    console.error("delete task with id: " + id);
-
-    if (confirm) {
-      db.transaction((tx) => {
-        tx.executeSql("delete from tasks where id=?", [id]);
-      });
-      router.replace("/");
-    }
+    db.transaction((tx) => {
+      tx.executeSql("delete from tasks where id=?", [id]);
+    });
   };
 
   return { task, taskLoading, deleteTask };

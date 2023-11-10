@@ -4,6 +4,7 @@ import {
 } from "@expo-google-fonts/atkinson-hyperlegible";
 import { Stack } from "expo-router";
 import { colors } from "../themes/colors";
+import { appstyle } from "../themes/appstyle";
 
 export default function App() {
   let [fontsLoaded, fontError] = useFonts({
@@ -25,6 +26,7 @@ export default function App() {
           color: colors.primaryPurple,
           fontSize: 20,
         },
+        contentStyle: appstyle,
       }}
     >
       <Stack.Screen
