@@ -1,19 +1,12 @@
-import {
-  View,
-  Text,
-  TextInput,
-  StyleSheet,
-  Button,
-  Keyboard,
-} from "react-native";
-import { useEffect, useState } from "react";
+import { View, Text, TextInput, StyleSheet } from "react-native";
+import { useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { colors } from "../../themes/colors";
 import { router } from "expo-router";
 import "react-native-get-random-values";
 import { useTasks } from "../hooks/useTasks";
-import { TaskType } from "../../types/taskType";
 import { AddButton } from "./AddButton";
+import { ErrorMessage } from "./ErrorMessage";
 
 interface Errors {
   [key: string]: string;
@@ -52,6 +45,7 @@ export const CreatTaskForm = () => {
     <>
       <View style={styles.field}>
         <Text style={styles.label}>task name</Text>
+        {errors?.taskName && <ErrorMessage text="task name is mandatory" />}
         <TextInput
           style={styles.input}
           onChangeText={(text) => setTaskName(text)}
