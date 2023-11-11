@@ -15,7 +15,7 @@ function index() {
 
       <View style={styles.buttonContainer}>
         <Link href={"/completedTasks"}>
-          <AddButton text={"view completed tasks"} />
+          <AddButton text={"completed tasks"} />
         </Link>
 
         <Link href={"/createtask"}>
@@ -29,6 +29,8 @@ function index() {
 const styles = StyleSheet.create({
   buttonContainer: {
     gap: 20,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

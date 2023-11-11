@@ -65,6 +65,6 @@ const styles = StyleSheet.create({
   taskText: {
     fontSize: 32,
     fontWeight: "bold",
-    width: 300,
+    maxWidth: 250,
   },
 });

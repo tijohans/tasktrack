@@ -13,6 +13,7 @@ import { router } from "expo-router";
 import "react-native-get-random-values";
 import { useTasks } from "../hooks/useTasks";
 import { TaskType } from "../../types/taskType";
+import { AddButton } from "./AddButton";
 
 interface Errors {
   [key: string]: string;
@@ -69,7 +70,8 @@ export const CreatTaskForm = () => {
         style={styles.buttonContainer}
         onPress={() => handleSubmit()}
       >
-        <Text style={styles.buttonText}>add task</Text>
+        {/* <Text style={styles.buttonText}>add task</Text> */}
+        <AddButton text="add task" />
       </TouchableOpacity>
     </>
   );
@@ -95,7 +97,6 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 10, height: 10 },
     shadowOpacity: 100,
     shadowRadius: 0,
-    width: 367,
     justifyContent: "center",
     alignItems: "center",
   },
