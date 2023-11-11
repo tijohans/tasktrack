@@ -29,8 +29,6 @@ export const Task: FC<TaskProps> = ({
     router.push("cameraModal?id=" + id);
   };
 
-  console.log(image);
-
   return (
     <View style={[{ width: width }, styles.taskContainer]}>
       <View>
