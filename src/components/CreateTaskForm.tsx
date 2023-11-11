@@ -29,7 +29,7 @@ export const CreatTaskForm = () => {
   };
 
   const handleSubmit = () => {
-    if (!validateForm()) return console.error("form not valid");
+    if (!validateForm()) return;
 
     let newTask = {
       name: taskName as string,
