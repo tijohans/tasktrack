@@ -2,9 +2,11 @@ import {
   useFonts,
   AtkinsonHyperlegible_400Regular,
 } from "@expo-google-fonts/atkinson-hyperlegible";
-import { Stack } from "expo-router";
+import { Stack, router } from "expo-router";
 import { colors } from "../themes/colors";
 import { appstyle } from "../themes/appstyle";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { Feather } from "@expo/vector-icons";
 
 export default function App() {
   let [fontsLoaded, fontError] = useFonts({
@@ -31,7 +33,10 @@ export default function App() {
     >
       <Stack.Screen
         name="index"
-        options={{ headerTitle: "home", navigationBarHidden: true }}
+        options={{
+          headerTitle: "home",
+          navigationBarHidden: true,
+        }}
       />
       <Stack.Screen
         name="createtask"
@@ -44,7 +49,11 @@ export default function App() {
       <Stack.Screen name="confirmModal" options={{ presentation: "modal" }} />
       <Stack.Screen
         name="cameraModal"
-        options={{ presentation: "modal", contentStyle: null }}
+        options={{ headerTitle: "", presentation: "modal", contentStyle: null }}
+      />
+      <Stack.Screen
+        name="completedTasks"
+        options={{ headerTitle: "completed tasks" }}
       />
     </Stack>
   );

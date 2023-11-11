@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Dimensions, StyleSheet, Text, View } from "react-native";
+import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
 import { colors } from "../../themes/colors";
 import { Feather } from "@expo/vector-icons";
 import { Link, router } from "expo-router";
@@ -10,9 +10,17 @@ interface TaskProps {
   taskName: string;
   taskDescription?: string;
   width: number;
+  image: string;
+  completed: 0 | 1;
 }
 
-export const Task: FC<TaskProps> = ({ taskName, id, width }) => {
+export const Task: FC<TaskProps> = ({
+  taskName,
+  id,
+  width,
+  image,
+  completed,
+}) => {
   const navigateToTask = (id: string) => {
     router.push({ pathname: "/(task)/[id]", params: { id: id } });
   };
@@ -21,15 +29,28 @@ export const Task: FC<TaskProps> = ({ taskName, id, width }) => {
     router.push("cameraModal?id=" + id);
   };
 
+  console.log(image);
+
   return (
     <View style={[{ width: width }, styles.taskContainer]}>
-      <TouchableOpacity onPress={() => navigateToTask(id)}>
-        <Text style={styles.taskText}>{taskName}</Text>
-      </TouchableOpacity>
+      <View>
+        {completed == 1 && (
+          <Image
+            source={{ uri: image }}
+            style={{ aspectRatio: 1, width: "100%", marginBottom: 15 }}
+          />
+        )}
 
-      <TouchableOpacity onPress={() => navigateToCamera()}>
-        <Feather name="camera" size={32} />
-      </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigateToTask(id)}>
+          <Text style={styles.taskText}>{taskName}</Text>
+        </TouchableOpacity>
+      </View>
+
+      {completed != 1 && (
+        <TouchableOpacity onPress={() => navigateToCamera()}>
+          <Feather name="camera" size={32} />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
