@@ -46,7 +46,10 @@ export default function App() {
         name="(task)/[id]/index"
         options={{ headerTitle: "task" }}
       />
-      <Stack.Screen name="confirmModal" options={{ presentation: "modal" }} />
+      <Stack.Screen
+        name="confirmModal"
+        options={{ headerTitle: "", presentation: "modal" }}
+      />
       <Stack.Screen
         name="cameraModal"
         options={{ headerTitle: "", presentation: "modal", contentStyle: null }}

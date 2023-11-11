@@ -1,6 +1,7 @@
 import { router, useLocalSearchParams } from "expo-router";
-import { Button, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { AddButton } from "../src/components/AddButton";
 
 export default function Modal() {
   const { id } = useLocalSearchParams();
@@ -19,21 +20,30 @@ export default function Modal() {
 
   return (
     <>
-      <View
-        style={{
-          height: "50%",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Text>Modal view</Text>
+      <View style={styles.buttonContainer}>
+        <Text style={styles.text}>
+          are you sure you want to delete this task?
+        </Text>
         <TouchableOpacity onPress={() => confirm()}>
-          <Button title="confirm delete" />
+          <AddButton text="confirm delete" red={true} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => decline()}>
-          <Button title="decline delete" />
+          <AddButton text="decline delete" />
         </TouchableOpacity>
       </View>
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 32,
+    fontWeight: "bold",
+  },
+  buttonContainer: {
+    gap: 20,
+    height: "50%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
