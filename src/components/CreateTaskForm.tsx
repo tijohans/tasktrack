@@ -7,6 +7,7 @@ import "react-native-get-random-values";
 import { useTasks } from "../hooks/useTasks";
 import { AddButton } from "./AddButton";
 import { ErrorMessage } from "./ErrorMessage";
+import { TextField } from "./TextField";
 
 interface Errors {
   [key: string]: string;
@@ -43,22 +44,13 @@ export const CreatTaskForm = () => {
 
   return (
     <>
-      <View style={styles.field}>
-        <Text style={styles.label}>task name</Text>
-        {errors?.taskName && <ErrorMessage text="task name is mandatory" />}
-        <TextInput
-          style={styles.input}
-          onChangeText={(text) => setTaskName(text)}
-        ></TextInput>
-      </View>
+      {errors?.taskName && <ErrorMessage text="task name is mandatory" />}
+      <TextField label="task name" onChangeTextFunc={setTaskName} />
 
-      <View style={styles.field}>
-        <Text style={styles.label}>additional information</Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={(text) => setTaskDescription(text)}
-        ></TextInput>
-      </View>
+      <TextField
+        label="additional information"
+        onChangeTextFunc={setTaskDescription}
+      />
 
       <TouchableOpacity
         style={styles.buttonContainer}
@@ -72,19 +64,6 @@ export const CreatTaskForm = () => {
 };
 
 const styles = StyleSheet.create({
-  field: {
-    marginVertical: 10,
-  },
-  label: {
-    fontSize: 32,
-    fontWeight: "bold",
-  },
-  input: {
-    backgroundColor: "white",
-    borderWidth: 2,
-    height: 34,
-  },
-
   buttonContainer: {
     backgroundColor: colors.primaryPurple,
     shadowColor: "black",
