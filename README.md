@@ -3,11 +3,22 @@ This readme file serves as a quickstart for the developers of the application.
 
 ## Project Overview
 
-The tasktrack application is designed to help users organize their daily lives and improve their effectiveness in completing what needs to be done. What sets tasktrack apart from similar apps is its core feature of needing to take a photo to complete a task. 
+tasktrack is a mobile application designed to help users organize their daily lives and improve their effectiveness in completing what needs to be done. What sets tasktrack apart from similar apps is its core feature of needing to take a photo to complete a task. 
 
 ### Key Features
 
 The key features of this application is the ability to add and complete tasks while giving the user something to look back at with the completed tasks gallery. Currently, the application focuses only on the core functionality while simultaneously trying to provide a good user experience. 
+
+### Technologies
+
+* React Native + Expo
+* Typescript
+
+React Native was chosen as it can build cross-platform applications from a single codebase. React Native, in combination with Expo, allows for a much better developer experience. Expo allows developers to see changes to the code quickly via the Expo Go application, greatly increasing developer productivity. 
+
+Typescript was added to try to minimize the amount of bugs occurring during development. This allows for developing with more confidence, as Typescript acts as a safeguard in many scenarios. 
+
+
 
 ## Local Development
 
