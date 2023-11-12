@@ -2,11 +2,9 @@ import {
   useFonts,
   AtkinsonHyperlegible_400Regular,
 } from "@expo-google-fonts/atkinson-hyperlegible";
-import { Stack, router } from "expo-router";
+import { Stack } from "expo-router";
 import { colors } from "../themes/colors";
 import { appstyle } from "../themes/appstyle";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { Feather } from "@expo/vector-icons";
 
 export default function App() {
   let [fontsLoaded, fontError] = useFonts({

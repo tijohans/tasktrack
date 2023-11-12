@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
 import { useTasks } from "../src/hooks/useTasks";
-import { Link, useLocalSearchParams } from "expo-router";
+import { Link } from "expo-router";
 import { AddButton } from "../src/components/AddButton";
 import { Tasks } from "../src/components/Tasks";
 import { StyleSheet, View } from "react-native";

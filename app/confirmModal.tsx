@@ -1,5 +1,5 @@
 import { router, useLocalSearchParams } from "expo-router";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { AddButton } from "../src/components/AddButton";
 

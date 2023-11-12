@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import * as SQLite from "expo-sqlite";
 import { TaskType } from "../../types/taskType";
-import { router } from "expo-router";
 
 export const useTask = (id: string) => {
   const [task, setTask] = useState<TaskType>();

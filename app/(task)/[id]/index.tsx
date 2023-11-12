@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import { useTask } from "../../../src/hooks/useTask";
 import { AddButton } from "../../../src/components/AddButton";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 export default function taskId() {
   const { id } = useLocalSearchParams();
-  const { task, taskLoading, deleteTask } = useTask(id as string);
+  const { task, deleteTask } = useTask(id as string);
   const { confirm } = useLocalSearchParams();
 
   const confirmDeleteTask = (id: string) => {

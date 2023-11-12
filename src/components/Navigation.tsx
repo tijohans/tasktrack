@@ -1,10 +1,9 @@
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { colors } from "../../themes/colors";
 import { FC } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { router } from "expo-router";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 
 interface NavigationProps {
   back?: boolean;

@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { colors } from "../../themes/colors";
 import { Feather } from "@expo/vector-icons";
-import { Link, router } from "expo-router";
+import { router } from "expo-router";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 interface TaskProps {

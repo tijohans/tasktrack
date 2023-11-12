@@ -9,7 +9,7 @@ import {
   View,
 } from "react-native";
 import { AddButton } from "../src/components/AddButton";
-import { getLocalImgUri, savePhotoToFileSystem } from "../src/utils/savePhoto";
+import { getLocalImgUri } from "../src/utils/savePhoto";
 import { router, useLocalSearchParams } from "expo-router";
 import { useTask } from "../src/hooks/useTask";
 
