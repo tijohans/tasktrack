@@ -59,18 +59,6 @@ yarn ios
 yarn android
 ```
 
-## Documentation
-
-### Code Style
-
-Codestyle is enforced through our eslint config, which is already configured. You are encouraged to install an eslint-plugin for your chosen editor, for instance, [vscode-eslint](https://github.com/Microsoft/vscode-eslint) for Visual Studio Code. Configuring it to run `eslint --fix` on save can also be a good thing for productivity. Typescript is preferred, and it is set up in strict mode.
-
-You can also lint the code manually from the project directory by running this command.
-
-```sh
-yarn run lint
-```
-
 ## The File Structure
 The React Native application follows a structured organization to maintain code clarity and separation of concerns. Here's a brief overview of the essential directories in which we will work:
 
