@@ -19,19 +19,17 @@ export default function Modal() {
   };
 
   return (
-    <>
-      <View style={styles.buttonContainer}>
-        <Text style={styles.text}>
-          are you sure you want to delete this task?
-        </Text>
-        <TouchableOpacity onPress={() => confirm()}>
-          <AddButton text="confirm delete" red={true} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => decline()}>
-          <AddButton text="decline delete" />
-        </TouchableOpacity>
-      </View>
-    </>
+    <View style={styles.buttonContainer}>
+      <Text style={styles.text}>
+        are you sure you want to delete this task?
+      </Text>
+      <TouchableOpacity onPress={() => confirm()}>
+        <AddButton text="confirm delete" red={true} />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => decline()}>
+        <AddButton text="decline delete" />
+      </TouchableOpacity>
+    </View>
   );
 }
 

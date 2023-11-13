@@ -4,11 +4,9 @@ import { CreatTaskForm } from "../src/components/CreateTaskForm";
 
 export default function CreateTask() {
   return (
-    <>
-      <View style={[styles.container]}>
-        <CreatTaskForm />
-      </View>
-    </>
+    <View style={[styles.container]}>
+      <CreatTaskForm />
+    </View>
   );
 }
 
